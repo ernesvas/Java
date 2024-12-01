@@ -1,0 +1,24 @@
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in); 
+      int highwayNumber;
+      int primaryNumber;
+
+      highwayNumber = scnr.nextInt();
+      
+      if (highwayNumber <= 0 || highwayNumber >= 1000) {
+         System.out.println(highwayNumber + " is not a valid interstate highway number.");
+      } else if (highwayNumber >= 1 && highwayNumber <= 99) {
+         primaryNumber = highwayNumber;
+         String direction = (primaryNumber % 2 == 0) ? "east/west" : "north/south";
+         System.out.println("I-" + primaryNumber + " is primary, going " + direction + ".");
+      } else {
+         primaryNumber = highwayNumber % 100;
+         if (primaryNumber >= 1 && primaryNumber <= 99) {
+            String direction = (primaryNumber % 2 == 0) ? "east/west" : "north/south";
+            System.out.println("I-" + highwayNumber + " is auxiliary, serving I-" + primaryNumber + ", going " + direction + ".");
+         } else {
+            System.out.println(highwayNumber + " is not a valid interstate highway number.");
+         }
+   }
+   }
